@@ -14,13 +14,11 @@ with open("Dec1Inputpart1.txt", "r") as depths:
 
 for x in range(depthlistlength):
 
-    if idx < depthlistlength - 1:
-        # print(depth[idx])
-        # print(depth[idx + 1])
-        depth1 = depth[idx]
-        depth2 = depth[idx + 1]
-        if depth1 < depth2:
-            count +=1
+    if idx < depthlistlength - 3:
+        depthsum1 = depth[idx] + depth[idx + 1] + depth[idx + 2]
+        depthsum2 = depth[idx + 1] + depth[idx + 2] + depth[idx + 3]
+        if depthsum1 < depthsum2:
+            count += 1
         else:
             pass
         idx += 1
