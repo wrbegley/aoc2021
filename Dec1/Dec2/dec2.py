@@ -28,11 +28,11 @@ def part1(horizontal, depth, inputlist):
             inputlist = subpath.strip().split(" ")
             # print (f'{inputlist[0]}   {inputlist[1]}')
             if inputlist[0] == "forward":
-                horizontal = horizontal + int(inputlist[1])
+                horizontal += int(inputlist[1])
             elif inputlist[0] == "down":
-                depth = depth + int(inputlist[1])
+                depth += int(inputlist[1])
             elif inputlist[0] == "up":
-                depth = depth - int(inputlist[1])
+                depth -= int(inputlist[1])
 
         solution = horizontal * depth
         print(f" Horizontal position = {horizontal}")
@@ -46,7 +46,22 @@ def part2(horizontal, depth, inputlist, aim):
 
         for subpath in directions:
             inputlist = subpath.strip().split(" ")
-
+            if inputlist[0] == "forward":
+                depth += (aim * int(inputlist[1]))
+                horizontal += int(inputlist[1])
+                #print (f'{horizontal} {aim} {depth}')
+            elif inputlist[0] == "down":
+                aim += int(inputlist[1])
+            elif inputlist[0] == "up":
+                aim -= int(inputlist[1])
+            else:
+                print ('error')
+    
+        solution = horizontal * depth
+        print (f' Aim is {aim}')
+        print(f" Horizontal position = {horizontal}")
+        print(f" depth position = {depth}")
+        print(f"solution is {solution}")            
 
 if __name__ == "__main__":
     main()
